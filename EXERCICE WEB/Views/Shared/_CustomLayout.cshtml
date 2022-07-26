@@ -1,0 +1,176 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="EXERCICE WEB">
+    <meta name="author" content="GeeksLabs">
+    <meta name="keyword" content="EXERCICE WEB">
+    <link rel="shortcut icon" href="img/favicon.png">
+
+    <title>EXERCICE WEB</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    @Styles.Render("~/template/css")
+    <!-- container section start -->
+
+
+
+</head>
+
+<body>
+    <header class="header dark-bg">
+
+
+        <!--logo start-->
+        <a href="index.html" class="logo">EXERCICE <span class="lite">WEB</span></a>
+        <!--logo end-->
+
+
+        <div class="top-nav notification-row">
+            <!-- notificatoin dropdown start-->
+            <ul class="nav pull-right top-menu">
+                <li class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <span class="profile-ava">
+                            <img alt="" src="~/Content/img/users.png">
+                        </span>
+                        @*<span class="username">
+                            @if (Session["UserID"]!= null)
+                            {
+                                @User.Identity.Name
+                                @Session["UserName"].ToString();
+                            }
+                        </span>*@
+                        
+                    </a>
+                    <ul class="dropdown-menu extended logout">
+
+                        @*<li>
+                            <a href=@Url.Action("LogOut","Login")><img alt="" src="~/Content/img/logout.jpg"> Log Out</a>
+                       
+                         </li>*@
+                    
+                    </ul>
+                </li>
+                <!-- user login dropdown end -->
+
+            </ul>
+            <!-- notificatoin dropdown end-->
+
+        </div>
+
+    </header>
+    <!--header end-->
+    <!--sidebar start-->
+    <section id="container" class="">
+
+        <!--header end-->
+        <!--sidebar start-->
+        <aside>
+            <div id="sidebar" class="nav-collapse " tabindex="5000" style="overflow: hidden; outline: none;">
+                <!-- sidebar menu start-->
+                <ul class="sidebar-menu">
+
+                    <li class="sub-menu">
+                        <a href="javascript:;" class="">
+
+                            <img alt="" src="~/Content/img/set2.png" />
+                            <span>Données</span>
+
+                        </a>
+                        <ul class="sub">
+                            <li><a class="" href="~/Users/Index"><img alt="" src="~/Content/img/iconfinder_Users_85409.png" /> Personnes</a></li>
+              
+                        </ul>
+                    </li>
+
+                  
+
+
+
+                    @*<li class="sub-menu">
+                        <a href="~/Report/Index" class="">
+                            <img alt="" src="~/Content/img/blue_repicthousebase_1484336386-1.png">
+                            <span>
+                                Reports
+                            </span>
+                        </a>
+                       
+                    </li>*@
+
+                    @*<li class="sub-menu">
+                        <a href="~/Export/Index" class="">
+                            <img alt="" src="~/Content/img/list.png">
+                            <span>
+                                Export Customer
+                            </span>
+                        </a>
+
+                    </li>*@
+                </ul>
+                <!-- sidebar menu end-->
+            </div>
+        </aside>
+
+        <!--main content start-->
+        <section id="main-content">
+           
+            @RenderBody()
+        </section>
+        
+    </section>
+    <!--main content end-->
+   
+    @Scripts.Render("~/template/js")
+    <script>
+        //knob
+        $(function () {
+            $(".knob").knob({
+                'draw': function () {
+                    $(this.i).val(this.cv + '%')
+                }
+            })
+        });
+
+        //carousel
+        $(document).ready(function () {
+            $("#owl-slider").owlCarousel({
+                navigation: true,
+                slideSpeed: 300,
+                paginationSpeed: 400,
+                singleItem: true
+
+            });
+        });
+
+        //custom select box
+
+        $(function () {
+            $('select.styled').customSelect();
+        });
+
+        /* ---------- Map ---------- */
+        $(function () {
+            $('#map').vectorMap({
+                map: 'world_mill_en',
+                series: {
+                    regions: [{
+                        values: gdpData,
+                        scale: ['#000', '#000'],
+                        normalizeFunction: 'polynomial'
+                    }]
+                },
+                backgroundColor: '#eef3f7',
+                onLabelShow: function (e, el, code) {
+                    el.html(el.html() + ' (GDP - ' + gdpData[code] + ')');
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>

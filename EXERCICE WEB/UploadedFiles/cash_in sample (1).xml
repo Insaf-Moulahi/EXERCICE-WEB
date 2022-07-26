@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DocFile>
+    <FileHeader>
+        <FileLabel>DOCUMENT</FileLabel>
+        <FormatVersion>2.1</FormatVersion>
+        <Sender>0001</Sender> <!-- Institution code -->
+        <CreationDate>2020-09-28</CreationDate> <!-- Banking date -->
+        <CreationTime>02:15:00</CreationTime> <!-- Banking time-->
+        <FileSeqNumber>2</FileSeqNumber> <!-- Should be unique for every new doc that is imported / you can start with 3-->
+    </FileHeader>
+     
+    <DocList>
+        <Doc>
+            <TransType>
+                <TransCode>
+		    	    <FinCategory>N</FinCategory> <!-- Financial / fixed -->
+                    <RequestCategory>P</RequestCategory> <!-- Advice / fixed-->
+                    <ServiceClass>T</ServiceClass> <!-- Transaction / fixed-->
+                    <TransTypeCode>CASHIN</TransTypeCode> <!--Transaction Type: Trans Type IDT in OpenWay\Full\Configuration Setup\Transaction Types\Transactions - All / fixed in cash in case  -->
+                </TransCode>
+            </TransType>
+             
+            <LocalDt>2020-09-28 13:00:51</LocalDt> <!-- Locale Date -->
+
+            <Originator>
+                <ContractNumber>001-PARTNER_BANK</ContractNumber> <!--Contract Number of MIZA / fixed -->
+		     <AccountInfo>
+			    <AccountType>CI</AccountType> <!-- Cash in Account: Account Type IDT in OpenWay\Full\Configuration Setup\Accounting Setup\Account Types where Product is set to "Bank Accounting" / fixed-->
+		     </AccountInfo>
+            </Originator>
+
+            <Destination>
+                <ContractNumber>001-P-4866709900</ContractNumber> <!--Contract Number of consumer-->
+	     	     <AccountInfo>
+			    <AccountType>CD</AccountType> <!-- Cl Deposit Account: Account Type IDT in OpenWay\Full\Configuration Setup\Accounting Setup\Account Types where Product is set to "Issuing" / fixed-->
+		     </AccountInfo>
+            </Destination>
+
+             
+            <Transaction>
+                <Currency>434</Currency> <!--Currency Code LYD=434-->
+                <Amount>11</Amount> <!--Amount-->
+                <Extra>
+                    <Type>AddInfo</Type>
+                    <AddData>
+                        <Parm>
+                            <ParmCode>TRANSFER_TYPE</ParmCode>
+                            <Value>CIN</Value>
+                        </Parm>
+                    </AddData>
+                </Extra>
+                <Extra>
+                    <Type>SrcTrn</Type>
+                    <Currency>434</Currency>
+                    <Amount>11</Amount>
+                </Extra>
+                <Extra>
+                    <Type>TgtTrn</Type>
+                    <Currency>434</Currency>
+                    <Amount>11</Amount>
+                </Extra>
+            </Transaction>
+             
+            <Billing>
+                <PhaseDate>2020-09-28</PhaseDate>
+                <Currency>434</Currency>
+                <Amount>11</Amount>
+            </Billing>
+             
+            <Reconciliation>
+                <PhaseDate>2020-09-28</PhaseDate>
+                <Currency>434</Currency>
+                <Amount>11</Amount>
+            </Reconciliation>
+             
+        </Doc>
+		<Doc>
+            <TransType>
+                <TransCode>
+		    	    <FinCategory>N</FinCategory> 
+                    <RequestCategory>P</RequestCategory> 
+                    <ServiceClass>T</ServiceClass> 
+                    <TransTypeCode>CASHIN</TransTypeCode> 
+                </TransCode>
+            </TransType>
+             
+            <LocalDt>2020-09-28 13:00:51</LocalDt> 
+
+            <Originator>
+                <ContractNumber>001-PARTNER_BANK</ContractNumber> 
+		     <AccountInfo>
+			    <AccountType>CI</AccountType> 
+		     </AccountInfo>
+            </Originator>
+
+            <Destination>
+                <ContractNumber>001-P-6919798510</ContractNumber> 
+	     	     <AccountInfo>
+			    <AccountType>CD</AccountType> 
+		     </AccountInfo>
+            </Destination>
+
+             
+            <Transaction>
+                <Currency>434</Currency> 
+                <Amount>30</Amount> 
+                <Extra>
+                    <Type>AddInfo</Type>
+                    <AddData>
+                        <Parm>
+                            <ParmCode>TRANSFER_TYPE</ParmCode>
+                            <Value>CIN</Value>
+                        </Parm>
+                    </AddData>
+                </Extra>
+                <Extra>
+                    <Type>SrcTrn</Type>
+                    <Currency>434</Currency>
+                    <Amount>30</Amount>
+                </Extra>
+                <Extra>
+                    <Type>TgtTrn</Type>
+                    <Currency>434</Currency>
+                    <Amount>30</Amount>
+                </Extra>
+            </Transaction>
+             
+            <Billing>
+                <PhaseDate>2020-09-28</PhaseDate>
+                <Currency>434</Currency>
+                <Amount>30</Amount>
+            </Billing>
+             
+            <Reconciliation>
+                <PhaseDate>2020-09-28</PhaseDate>
+                <Currency>434</Currency>
+                <Amount>30</Amount>
+            </Reconciliation>
+             
+        </Doc>
+    </DocList>
+     
+</DocFile>
+<!--note: to add more than one cash in transaction in the same file you should copy  all the lins between tag <Doc></Doc> and past it  in 
+the the tag  <DocList> </DocList> under </Doc>  -->
+<!-- all values in <Amount></Amount> tag should be changed to cash in amount  -->
+<!--you can do multible cash in with diffirent amounts in the same file-->
+
+ 
